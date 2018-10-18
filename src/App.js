@@ -1,25 +1,54 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {
+  HashRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
+
+import Header from './components/Header/Header';
+import One from './components/Steps/One/One';
+import Two from './components/Steps/Two/Two';
+import Three from './components/Steps/Three/Three';
+import Four from './components/Steps/Four/Four';
+import Menu from './components/Menu/Menu';
+
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Router>
+          <div>
+          <Header />
+          <div className="grid-2">
+            <Menu />
+            <Switch>
+              <Redirect exact from="/" to="/home" />
+              <Route
+                path="/home"
+                component={One}
+              />
+
+              <Route
+                path="/two"
+                component={Two}
+              />
+
+              <Route
+                path="/three"
+                component={Three}
+              />
+
+              <Route
+                path="/four"
+                component={Four}
+              />
+            </Switch>
+            </div>
+          </div>
+        </Router>
       </div>
     );
   }

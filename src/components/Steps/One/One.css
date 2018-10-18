@@ -1,0 +1,16 @@
+ul {
+    list-style: none;
+    text-align: left;
+}
+ul li {
+    margin: 5px;
+}
+
+ul li:nth-child(odd){
+    background-color: lightgray;
+}
+
+.sub div{
+    height: max-content;
+    
+}
